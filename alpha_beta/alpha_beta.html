@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Alpha Beta</title>
+	<script type="text/javascript" src="alpha_beta.js"></script>
+	<link rel="stylesheet" type="text/css" href="alpha_beta.css">
+</head>
+
+
+<body>
+
+	<div id="deckPage">
+
+		<!--container for card/switch buttons and flip button-->
+		<div id="container1">
+
+			<!--container for save/load buttons-->
+			<div id="container2">
+				<button id="save" onclick="saveDeckPage()">Save Deck</button>
+				<button id="load" onclick="loadDeckPage()">Load Deck</button>
+			</div>
+
+			<!--container for card and next/last card buttons-->
+			<div id="container3">
+
+				<button id="lastCard" onclick="lastCard()"><</button>
+
+				<!--container for card-->
+				<div class="scene">
+
+					<!--card-->
+					<div class="card" id="cardId">
+
+							<!--question side of card-->
+							<div class="card_face card_face--front">
+								<div id="front"></div>
+							</div>
+
+							<!--answer side of card-->
+							<div class="card_face card_face--back">
+								<div id="back"></div>
+							</div>
+
+					</div>
+
+				</div>
+
+				<button id="nextCard" onclick="nextCard()">></button>
+
+			</div>
+
+			<!--button that flips card-->
+			<button id="flipButton" onclick="flipCard()">Flip</button>
+			<button onclick="deleteDeckPage()">Delete Deck</button>
+
+		</div>
+
+
+
+		<!--container for buttons-->
+		<div id="buttonsContainer">
+
+			<!--buttons-->
+			<button id="createCard" onclick="createCardPage()">Create Card</button>
+			<button id="deleteCard" onclick="deleteCard()">Delete Card</button>
+			<button id="reshuffle" onclick="reshuffle()">Reshuffle</button>
+
+		</div>
+
+	</div>
+
+
+
+
+
+
+	<div id="createCardPage">
+
+		<div id="newCardDivContainer">
+			<div class="newCardDiv">
+				<div id="questionLabel">
+					Question:
+				</div>
+				<textarea id="newQuestion"></textarea>
+			</div>
+
+			<div class="newCardDiv">
+				<div id="answerLabel">
+					Answer:
+				</div>
+				<textarea id="newAnswer"></textarea>
+			</div>
+		</div>
+	
+		<div id="newCardButtons">
+			<button id="submitCard" onclick="submitCard()">Submit</button>
+			<button id="newCardReturn" onclick="returnToDeckPage(`createCardPage`, `newQuestion`, `newAnswer`)">Return</button>
+		</div>
+
+	</div>
+
+
+
+
+
+
+	<div id="saveDeckPage">
+
+		<div id="deckNameContainer">
+			Deck Name:
+			<input type="text" name="deck_name" id="saveInput">
+		</div>
+
+		<div id="saveButtons">
+			<button id="submitSave" onclick="submitSave()">Submit</button>
+			<button id="saveReturn" onclick="returnToDeckPage(`saveDeckPage`, `saveInput`, `saveInput`)">Return</button>
+		</div>
+
+	</div>
+
+
+
+
+
+
+	<div id="loadDeckPage">
+		<div id="saveFiles"></div>
+
+		<button id="returnFromLoad" onclick="returnToDeckPage(`loadDeckPage`, `saveFiles`, `saveFiles`)">Return</button>
+	</div>
+
+
+
+
+
+
+	<div id="deleteDeckPage">
+		<div id="saveFilesDel"></div>
+
+		<button id="returnFromDelete" onclick="returnToDeckPage(`deleteDeckPage`, `saveFilesDel`, `saveFilesDel`)">Return</button>
+	</div>
+
+
+
+
+</body>
+
+
+<script type="text/javascript">
+	document.getElementById('createCardPage').style.display = "none";
+	document.getElementById('saveDeckPage').style.display = "none";
+	document.getElementById('loadDeckPage').style.display = "none";
+	document.getElementById('deleteDeckPage').style.display = "none";
+</script>
+</html>

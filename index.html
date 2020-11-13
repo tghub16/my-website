@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Tavin's Website</title>
+	<link rel="stylesheet" type="text/css" href="tavins_website.stylesheet_2.0.css">	
+
+	<script src="tavins_website_2.0.js"></script>
+
+</head>
+
+
+
+
+
+
+
+<body>
+	<!-- container for entire project -->
+	<div id="everything">
+		<!-- header contains the site title and page buttons -->
+		<header>
+			<!-- container for title that shows on top of website -->
+			<div id="siteTitleContainer">
+				<!-- "mainTitle" has larger font size -->
+				<h1 id="mainTitle">TavinTogia</h1>
+				<!-- is in a smaller font size -->
+				<h2>Web Developer</h2>
+			</div>
+
+
+			<!-- container for the buttons that take you to different pages -->
+			<div id="pageButtons">
+
+
+				<!-- container for page button -->
+				<div class="pageButton">
+					<!-- container for two layers of the same button on top of eachother so that it can have desired onhover animation -->
+					<div class="pageButtonContainer">
+						<button class="circle" id="bioBttn" onclick="goToPage('bioPage', `Bio`)">Bio</button>
+						<button class="circle" id="bioBttn" onclick="goToPage('bioPage', `Bio`)">Bio</button>
+					</div>
+				</div>
+
+				<div class="pageButton">
+					<div class="pageButtonContainer">
+						<button class="circle" id="projectsBttn" onclick="goToPage('projectsPage', `Projects`)">Projects</button>
+						<button class="circle" id="projectsBttn" onclick="goToPage('projectsPage', `Projects`)">Projects</button>
+					</div>
+				</div>
+
+				<div class="pageButton">
+					<div class="pageButtonContainer">
+						<button class="circle" id="contactBttn" onclick="goToPage('contactPage', `Contact`)">Contact</button>
+						<button class="circle" id="contactBttn" onclick="goToPage('contactPage', `Contact`)">Contact</button>
+					</div>
+				</div>
+
+
+			</div>
+		</header>
+
+
+		<!-- main contains the title and content of each page, visibility changes based on which page button is pressed -->
+		<main>
+			<!-- title of the current page, changes when a new page is selected -->
+			<h2 id="title">Bio</h2>
+
+
+
+
+
+			
+			<!-- container for content of the bio page -->
+			<div class="page" id="bioPage">
+				<!-- container for the bio text and stat bar graphic -->
+				<div id="bioAndStatBars">
+					<!-- container for bio text and a link to my resume PDF -->
+					<div id="bio">
+						<p>
+							Hello, my name is Tavin Togia and I am a self-taught web developer. I began my coding journey in 2017. 
+							I have a can do approach to every task I tackle. My motto is if it's possible, I can figure out how to 
+							do it. I am proficient in HTML, CSS, JavaScript, and React. I have learned much up to this point and am 
+							continuing to learn more every day.  
+						</p>
+						<!-- link to my resume -->
+						<a href="./resume.pdf" id="viewResume">View My Resume</a>
+					</div>
+
+					<!-- table containing bars for coding proficiencies -->
+					<table>
+						<tbody>
+							<!-- rows are of specific coding skills -->
+							<tr class="codingSkillRow">
+								<!-- name of coding skill -->
+								<td class="codingSkill">HTML</td>
+								<!-- number rating for coding skill -->
+								<td class="codingSkillVal">10</td>
+								<!-- bar is divided into 10 segments that can be filled in or empty -->
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+							</tr>
+
+							<tr class="codingSkillRow" id="codingSkill">
+								<td class="codingSkill">CSS</td>
+								<td class="codingSkillVal">10</td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+							</tr>
+							<tr class="codingSkillRow" id="codingSkill">
+								<td class="codingSkill">JavaScript</td>
+								<td class="codingSkillVal">9</td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar empty"><div></div></td>
+							</tr>
+							<tr class="codingSkillRow" id="codingSkill">
+								<td class="codingSkill">React</td>
+								<td class="codingSkillVal">7</td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar empty"><div></div></td>
+								<td class="codingSkillBar empty"><div></div></td>
+								<td class="codingSkillBar empty"><div></div></td>
+							</tr>
+							<tr class="codingSkillRow" id="codingSkill">
+								<td class="codingSkill">GIT</td>
+								<td class="codingSkillVal">7</td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar empty"><div></div></td>
+								<td class="codingSkillBar empty"><div></div></td>
+								<td class="codingSkillBar empty"><div></div></td>
+							</tr>
+							<tr class="codingSkillRow" id="codingSkill">
+								<td class="codingSkill">Adobe Illustrator</td>
+								<td class="codingSkillVal">6</td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar empty"><div></div></td>
+								<td class="codingSkillBar empty"><div></div></td>
+								<td class="codingSkillBar empty"><div></div></td>
+								<td class="codingSkillBar empty"><div></div></td>
+							</tr>
+							<tr class="codingSkillRow" id="codingSkill">
+								<td class="codingSkill">Adobe Photoshop</td>
+								<td class="codingSkillVal">7</td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar empty"><div></div></td>
+								<td class="codingSkillBar empty"><div></div></td>
+								<td class="codingSkillBar empty"><div></div></td>
+							</tr>
+							<tr class="codingSkillRow" id="codingSkill">
+								<td class="codingSkill">Clip Studio Paint</td>
+								<td class="codingSkillVal">9</td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar"><div></div></td>
+								<td class="codingSkillBar empty"><div></div></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+
+
+
+
+
+
+
+
+
+			<!-- contianer for content of the projects page -->
+			<div class="page" id="projectsPage">
+
+					<!-- button containing the name of the project, a description, and a thumbnail; grows in size on hover -->
+					<button class="projectBox" id="projectBox1" onclick="openFile('dungeons&dragons/dungeons.index.html')">
+							<!-- container for title and description of the project -->
+							<div class="textContainer">
+								<h2>Dungeons and Dragons</h2>
+								<div>This is my Dungeons and Dragons character sheet phone app. It is a full character sheet that 
+									automatically calculates armor class, attack bonus, and stat modifiers based on your stats/
+									equipment. (HTML, CSS, JS)</div>
+							</div>
+
+							<!-- thumbnail of project -->
+							<img src="Pictures/dndThumbnail.jpg" class="thumbnail">
+					</button>
+
+
+					<button class="projectBox" id="projectBox2" onclick="openFile('alpha_beta/alpha_beta.html')">
+						<div class="textContainer">
+							<h2>Notecards</h2>
+							<div>This is my notecard app. It allows you to create/delete cards, save/delete decks, and reshuffle 
+								your current deck. (HTML, CSS, JS)</div>
+						</div>
+					
+						<img src="Pictures/notecardsThumbnail.jpg" class="thumbnail">
+					</button>
+
+					
+					<button class="projectBox" id="projectBox3" onclick="openFile('http://tghub16.github.io/slay/')">
+						<div class="textContainer">
+							<h2>Slay The Spire Damage Calculator</h2>
+							<div>This is a damage calculator for the game Slay the Spire. It calculates the exact damage that will 
+								be dealt using multi-targeting attacks. (HTML, CSS, React.js)</div>
+						</div>
+					
+						<img src="Pictures/slayThumbnail.jpg" class="thumbnail">
+					</button>
+					
+			</div>
+
+
+
+
+
+
+			
+
+
+
+
+
+
+			<!-- contianer for content of the contact page -->
+			<div class="page" id="contactPage">
+
+				<!-- email address -->
+				<h3 id="email">Email</h3>
+				<p id="emailAddress">tavintogia@gmail.com</p>
+
+				<!-- link to my Linked In page -->
+				<h3>LinkedIn</h3>
+				<a href="https://www.linkedin.com/in/tavin-togia-1172961b0">Tavin Togia</a>
+
+			</div>
+
+		</div>
+	</main>	
+</body>
+</html>

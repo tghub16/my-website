@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title>D&D Character Sheet</title>
+	<link rel="stylesheet" type="text/css" href="dungeons.style.css">
+	<script type="text/javascript" src="dungeons.js"></script>
+
+</head>
+
+<body>
+<div id="everything">
+
+
+<div id="characterProfile">
+	Player's Name<br><input><br>
+	Character's Name<br><input><br>
+	Class & Level<br><input><br>
+	Experience Points<br><input><br>
+	Race<br><input><br>
+	Alignment<br><input><br>
+</div>
+
+
+<div class="tab">
+	<button class="tablinks" onclick="openPage(event, 'page1')">Stats</button>
+	<button class="tablinks" onclick="openPage(event, 'page2')">Gear/AC/Atk Bonus</button>
+	<button class="tablinks" onclick="openPage(event, 'page3')">Items/Currency</button>
+	<button class="tablinks" onclick="openPage(event, 'page4')">Feats/Features</button>
+	<button class="tablinks" onclick="openPage(event, 'page5')">Notes</button>
+</div>
+
+<!--Page 1 has functionality, make sure future variables fit with it-->
+<div id="page1" class="tabcontent">
+	<div>
+		Strength
+		<input id="str" type="number" oninput="getStrMod()"><br>
+		<div id="strIWA">
+			Special Item/Weapon/Armor Bonus 0
+		</div>
+		Extra
+		<input id="strBonus" type="number" oninput="getStrMod()">
+		<p id="strModifier">-5</p>
+	</div><br>
+
+	<div>
+		Dexterity
+		<input id="dex" type="number" oninput="getDexMod()"><br>
+		<div id="dexIWA">
+			Special Item/Weapon/Armor Bonus 0
+		</div>
+		Extra
+		<input id="dexBonus" type="number" oninput="getDexMod()">
+		<p id="dexModifier">-5</p>
+	</div><br>
+
+	<div>
+		Constitution
+		<input id="con" type="number" oninput="getConMod()"><br>
+		<div id="conIWA">
+			Special Item/Weapon/Armor Bonus 0
+		</div>   
+		extra
+		<input id="conBonus" type="number" oninput="getConMod()">
+		<p id="conModifier">-5</p>
+	</div><br>
+
+	<div>
+		Intelligence
+		<input id="int" type="number" oninput="getIntMod()"><br>
+		<div id="intIWA">
+			Special Item/Weapon/Armor Bonus 0
+		</div>  
+		extra
+		<input id="intBonus" type="number" oninput="getIntMod()">
+		<p id="intModifier">-5</p>
+	</div><br>
+
+	<div>
+		Wisdom
+		<input id="wis" type="number" oninput="getWisMod()"><br>
+		<div id="wisIWA">
+			Special Item/Weapon/Armor Bonus 0
+		</div>  
+		extra
+		<input id="wisBonus" type="number" oninput="getWisMod()">
+		<p id="wisModifier">-5</p>
+	</div><br>
+
+	<div>
+		Charisma
+		<input id="cha" type="number" oninput="getChaMod()"><br>
+		<div id="chaIWA">
+			Special Item/Weapon/Armor Bonus 0
+		</div> 
+		extra
+		<input id="chaBonus" type="number" oninput="getChaMod()">
+		<p id="chaModifier">-5</p>
+	</div>
+</div>
+
+
+
+<div id="page2" class="tabcontent">
+	<!--AC section auto filled in using variables from other sections of code-->
+	Dex Modifier 
+	<div id="acDex">-5</div>
+	Armor
+	<div id="acArm"></div>
+	Shield
+	<div id="acShi"></div>
+	Weapons/Items
+	<div id="acWeI"></div>
+	Misc 
+	<input type="number" id="miscArm" oninput="getDexMod()"><br>
+	Armor Class 
+	<div id="ac">-5</div>
+	<br><br>
+
+	Attack Bonus
+	<div id="atkBonus">0</div>
+	<br><br>
+
+	Hit Point Maximum
+	<input type="number" id="maxHP">
+
+	Current Hit Points
+	<input type="number" id="currentHP">
+
+	Bonus Hit Points
+	<input type="number" id="bonusHP">
+
+	<br><br>
+
+	Hit Dice<br>
+	Total
+	<input type="">
+	Available
+	<input type="">
+	<br><br>
+
+	Death Saves<br>
+	Successes <input type="checkbox"><input type="checkbox"><input type="checkbox">
+	Fails <input type="checkbox"><input type="checkbox"><input type="checkbox">
+	<br><br>
+
+	Weapon<br>
+	<div id="weapon0">
+		Name
+		<input><br>
+		Range
+		<input><br>
+		Damage
+		<input><br>
+		Damage Type
+		<input id="dmgType"><br>
+		ATK Bonus 
+		<input type="number" id="weaponAtk" oninput="getAtkBonus()"><br>
+		Base AC
+		<input type="number" id="weaponArm" oninput="getDexMod()"><br>
+		Description
+		<textarea></textarea><br>
+
+		<button id="weaponButton" onclick="showWeaponStatMods()">Stat Modifiers</button>
+		<br>
+		<!--hidden until button pressed-->
+		<div id="weaponStatMods">
+			Str
+			<input type="number" id="weaponStr" oninput="getStrMod()">
+			Dex
+			<input type="number" id="weaponDex" oninput="getDexMod()">
+			Con
+			<input type="number" id="weaponCon" oninput="getConMod()">
+			Int
+			<input type="number" id="weaponInt" oninput="getIntMod()">
+			Wis
+			<input type="number" id="weaponWis" oninput="getWisMod()">
+			Cha
+			<input type="number" id="weaponCha" oninput="getChaMod()">
+		</div><br>
+	</div>
+
+	<div id="weapons"></div>
+
+	<div id='wTwo'>
+		<br>
+		Name
+		<input><br>
+		Range
+		<input><br>
+		Damage
+		<input><br>
+		Damage Type
+		<input id="dmgType"><br>
+		ATK Bonus 
+		<input type="number" id="weaponAtk2" oninput="getAtkBonus()"><br>
+		Base AC
+		<input type="number" id="weaponArm2" oninput="getDexMod()"><br>
+		Description
+		<textarea></textarea><br>
+		<button id="weaponButton2" onclick="showWeaponStatMods2()">Stat Modifiers</button>
+		<div id="weaponStatMods2">
+			Str
+			<input type="number" id= "weaponStr2" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "weaponDex2" oninput="getDexMod()">
+			Con
+			<input type="number" id= "weaponCon2" oninput="getConMod()">
+			Int
+			<input type="number" id= "weaponInt2" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "weaponWis2" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "weaponCha2" oninput="getChaMod()">
+		</div><br><br>
+	</div>
+
+	<div id='wThree'>
+		<br>
+		<input><br>
+		Range
+		<input><br>
+		Damage
+		<input><br>
+		Damage Type
+		<input id="dmgType"><br>
+		ATK Bonus 
+		<input type="number" id="weaponAtk3" oninput="getAtkBonus()"><br>
+		Base AC
+		<input type="number" id="weaponArm3" oninput="getDexMod()"><br>
+		Description
+		<textarea></textarea><br>
+		<button id="weaponButton3" onclick="showWeaponStatMods3()">Stat Modifiers</button>
+		<div id="weaponStatMods3">
+			Str
+			<input type="number" id= "weaponStr3" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "weaponDex3" oninput="getDexMod()">
+			Con
+			<input type="number" id= "weaponCon3" oninput="getConMod()">
+			Int
+			<input type="number" id= "weaponInt3" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "weaponWis3" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "weaponCha3" oninput="getChaMod()">
+		</div><br><br>
+	</div>
+
+	<div id='wFour'>
+		<br>
+		<input><br>
+		Range
+		<input><br>
+		Damage
+		<input><br>
+		Damage Type
+		<input id="dmgType"><br>
+		ATK Bonus 
+		<input type="number" id="weaponAtk4" oninput="getAtkBonus()"><br>
+		Base AC
+		<input type="number" id="weaponArm4" oninput="getDexMod()"><br>
+		Description
+		<textarea></textarea><br>
+		<button id="weaponButton4" onclick="showWeaponStatMods4()">Stat Modifiers</button>
+		<div id="weaponStatMods4">
+			Str
+			<input type="number" id= "weaponStr4" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "weaponDex4" oninput="getDexMod()">
+			Con
+			<input type="number" id= "weaponCon4" oninput="getConMod()">
+			Int
+			<input type="number" id= "weaponInt4" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "weaponWis4" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "weaponCha4" oninput="getChaMod()">
+		</div><br><br>
+	</div>
+
+	<div id='wFive'>
+		<br>
+		<input><br>
+		Range
+		<input><br>
+		Damage
+		<input><br>
+		Damage Type
+		<input id="dmgType"><br>
+		ATK Bonus 
+		<input type="number" id="weaponAtk5" oninput="getAtkBonus()"><br>
+		Base AC
+		<input type="number" id="weaponArm5" oninput="getDexMod()"><br>
+		Description
+		<textarea></textarea><br>
+		<button id="weaponButton5" onclick="showWeaponStatMods5()">Stat Modifiers</button>
+		<div id="weaponStatMods5">
+			Str
+			<input type="number" id= "weaponStr5" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "weaponDex5" oninput="getDexMod()">
+			Con
+			<input type="number" id= "weaponCon5" oninput="getConMod()">
+			Int
+			<input type="number" id= "weaponInt5" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "weaponWis5" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "weaponCha5" oninput="getChaMod()">
+		</div><br><br>
+	</div>
+
+	<div id='wSix'>
+		<br>
+		<input><br>
+		Range
+		<input><br>
+		Damage
+		<input><br>
+		Damage Type
+		<input id="dmgType"><br>
+		ATK Bonus 
+		<input type="number" id="weaponAtk6" oninput="getAtkBonus()"><br>
+		Base AC
+		<input type="number" id="weaponArm6" oninput="getDexMod()"><br>
+		Description
+		<textarea></textarea><br>
+		<button id="weaponButton6" onclick="showWeaponStatMods6()">Stat Modifiers</button>
+		<div id="weaponStatMods6">
+			Str
+			<input type="number" id= "weaponStr6" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "weaponDex6" oninput="getDexMod()">
+			Con
+			<input type="number" id= "weaponCon6" oninput="getConMod()">
+			Int
+			<input type="number" id= "weaponInt6" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "weaponWis6" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "weaponCha6" oninput="getChaMod()">
+		</div><br><br>
+	</div>
+
+	<div id='wSeven'>
+		<br>
+		<input><br>
+		Range
+		<input><br>
+		Damage
+		<input><br>
+		Damage Type
+		<input id="dmgType"><br>
+		ATK Bonus 
+		<input type="number" id="weaponAtk7" oninput="getAtkBonus()"><br>
+		Base AC
+		<input type="number" id="weaponArm7" oninput="getDexMod()"><br>
+		Description
+		<textarea></textarea><br>
+		<button id="weaponButton7" onclick="showWeaponStatMods7()">Stat Modifiers</button>
+		<div id="weaponStatMods7">
+			Str
+			<input type="number" id= "weaponStr7" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "weaponDex7" oninput="getDexMod()">
+			Con
+			<input type="number" id= "weaponCon7" oninput="getConMod()">
+			Int
+			<input type="number" id= "weaponInt7" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "weaponWis7" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "weaponCha7" oninput="getChaMod()">
+		</div><br><br>
+	</div>
+
+	<div id='wEight'>
+		<br>
+		<input><br>
+		Range
+		<input><br>
+		Damage
+		<input><br>
+		Damage Type
+		<input id="dmgType"><br>
+		ATK Bonus 
+		<input type="number" id="weaponAtk8" oninput="getAtkBonus()"><br>
+		Base AC
+		<input type="number" id="weaponArm8" oninput="getDexMod()"><br>
+		Description
+		<textarea></textarea><br>
+		<button id="weaponButton8" onclick="showWeaponStatMods8()">Stat Modifiers</button>
+		<div id="weaponStatMods8">
+			Str
+			<input type="number" id= "weaponStr8" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "weaponDex8" oninput="getDexMod()">
+			Con
+			<input type="number" id= "weaponCon8" oninput="getConMod()">
+			Int
+			<input type="number" id= "weaponInt8" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "weaponWis8" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "weaponCha8" oninput="getChaMod()">
+		</div><br><br>
+	</div>
+
+	<div id='wNine'>
+		<br>
+		<input><br>
+		Range
+		<input><br>
+		Damage
+		<input><br>
+		Damage Type
+		<input id="dmgType"><br>
+		ATK Bonus 
+		<input type="number" id="weaponAtk9" oninput="getAtkBonus()"><br>
+		Base AC
+		<input type="number" id="weaponArm9" oninput="getDexMod()"><br>
+		Description
+		<textarea></textarea><br>
+		<button id="weaponButton9" onclick="showWeaponStatMods9()">Stat Modifiers</button>
+		<div id="weaponStatMods9">
+			Str
+			<input type="number" id= "weaponStr9" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "weaponDex9" oninput="getDexMod()">
+			Con
+			<input type="number" id= "weaponCon9" oninput="getConMod()">
+			Int
+			<input type="number" id= "weaponInt9" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "weaponWis9" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "weaponCha9" oninput="getChaMod()">
+		</div><br><br>
+	</div>
+
+	<div id='wTen'>
+		<br>
+		<input><br>
+		Range
+		<input><br>
+		Damage
+		<input><br>
+		Damage Type
+		<input id="dmgType"><br>
+		ATK Bonus 
+		<input type="number" id="weaponAtk10" oninput="getAtkBonus()"><br>
+		Base AC
+		<input type="number" id="weaponArm10" oninput="getDexMod()"><br>
+		Description
+		<textarea></textarea><br>
+		<button id="weaponButton10" onclick="showWeaponStatMods10()">Stat Modifiers</button>
+		<div id="weaponStatMods10">
+			Str
+			<input type="number" id= "weaponStr10" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "weaponDex10" oninput="getDexMod()">
+			Con
+			<input type="number" id= "weaponCon10" oninput="getConMod()">
+			Int
+			<input type="number" id= "weaponInt10" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "weaponWis10" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "weaponCha10" oninput="getChaMod()">
+		</div><br><br>
+	</div>
+
+	<button onclick="addWeapon()">add weapon</button>
+	<br><br>
+
+    Armor<br>
+    Name 
+	<input><br>
+	Type
+	<input><br>
+	ATK Bonus
+	<input type="number" id="armorAtk" oninput="getAtkBonus()"><br>
+	Base AC
+	<input type="number" id="armorArm" oninput="getDexMod()"><br>
+	Description
+	<textarea></textarea><br>
+	<button onclick="showArmorStatMods()">Stat Modifiers</button>
+    <!--hidden until button pressed-->
+    <div id="armorStatMods">
+    	Str
+    	<input type="number" id="armorStr" oninput="getStrMod()">
+    	Dex
+    	<input type="number" id="armorDex" oninput="getDexMod()">
+    	Con
+    	<input type="number" id="armorCon" oninput="getConMod()">
+    	Int
+    	<input type="number" id="armorInt" oninput="getIntMod()">
+    	Wis
+    	<input type="number" id="armorWis" oninput="getWisMod()">
+    	Cha
+    	<input type="number" id="armorCha" oninput="getChaMod()">
+    </div><br>
+
+    <div id='aTwo'>
+		<br>
+		Name 
+		<input><br>
+		Type
+		<input><br>
+		ATK Bonus
+		<input type="number" id="armorAtk2" oninput="getAtkBonus()"><br>
+		Base AC
+		<input type="number" id="armorArm2" oninput="getDexMod()"><br>
+		Description
+		<textarea></textarea><br>
+		<button id="armorButton2" onclick="showArmorStatMods2()">Stat Modifiers</button>
+		<div id="armorStatMods2">
+			Str
+			<input type="number" id= "armorStr2" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "armorDex2" oninput="getDexMod()">
+			Con
+			<input type="number" id= "armorCon2" oninput="getConMod()">
+			Int
+			<input type="number" id= "armorInt2" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "armorWis2" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "armorCha2" oninput="getChaMod()">
+		</div><br>
+	</div>
+
+    <div id='aThree'>
+		<br>
+		Name 
+		<input><br>
+		Type
+		<input><br>
+		ATK Bonus
+		<input type="number" id="armorAtk3" oninput="getAtkBonus()"><br>
+		Base AC
+		<input type="number" id="armorArm3" oninput="getDexMod()"><br>
+		Description
+		<textarea></textarea><br>
+		<button id="armorButton3" onclick="showArmorStatMods3()">Stat Modifiers</button>
+		<div id="armorStatMods3">
+			Str
+			<input type="number" id= "armorStr3" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "armorDex3" oninput="getDexMod()">
+			Con
+			<input type="number" id= "armorCon3" oninput="getConMod()">
+			Int
+			<input type="number" id= "armorInt3" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "armorWis3" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "armorCha3" oninput="getChaMod()">
+		</div><br><br>
+	</div>
+
+    <div id='aFour'>
+		<br>
+		Name 
+		<input><br>
+		Type
+		<input><br>
+		ATK Bonus
+		<input type="number" id="armorAtk4" oninput="getAtkBonus()"><br>
+		Base AC
+		<input type="number" id="armorArm4" oninput="getDexMod()"><br>
+		Description
+		<textarea></textarea><br>
+		<button id="armorButton4" onclick="showArmorStatMods4()">Stat Modifiers</button>
+		<div id="armorStatMods4">
+			Str
+			<input type="number" id= "armorStr4" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "armorDex4" oninput="getDexMod()">
+			Con
+			<input type="number" id= "armorCon4" oninput="getConMod()">
+			Int
+			<input type="number" id= "armorInt4" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "armorWis4" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "armorCha4" oninput="getChaMod()">
+		</div><br><br>
+	</div>
+
+    <div id='aFive'>
+		<br>
+		Name 
+		<input><br>
+		Type
+		<input><br>
+		ATK Bonus
+		<input type="number" id="armorAtk5" oninput="getAtkBonus()"><br>
+		Base AC
+		<input type="number" id="armorArm5" oninput="getDexMod()"><br>
+		Description
+		<textarea></textarea><br>
+		<button id="armorButton5" onclick="showArmorStatMods5()">Stat Modifiers</button>
+		<div id="armorStatMods5">
+			Str
+			<input type="number" id= "armorStr5" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "armorDex5" oninput="getDexMod()">
+			Con
+			<input type="number" id= "armorCon5" oninput="getConMod()">
+			Int
+			<input type="number" id= "armorInt5" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "armorWis5" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "armorCha5" oninput="getChaMod()">
+		</div><br><br>
+	</div>
+
+    <div id='aSix'>
+		<br>
+		Name 
+		<input><br>
+		Type
+		<input><br>
+		ATK Bonus
+		<input type="number" id="armorAtk6" oninput="getAtkBonus()"><br>
+		Base AC
+		<input type="number" id="armorArm6" oninput="getDexMod()"><br>
+		Description
+		<textarea></textarea><br>
+		<button id="armorButton6" onclick="showArmorStatMods6()">Stat Modifiers</button>
+		<div id="armorStatMods6">
+			Str
+			<input type="number" id= "armorStr6" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "armorDex6" oninput="getDexMod()">
+			Con
+			<input type="number" id= "armorCon6" oninput="getConMod()">
+			Int
+			<input type="number" id= "armorInt6" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "armorWis6" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "armorCha6" oninput="getChaMod()">
+		</div><br><br>
+	</div>
+
+    <div id='aSeven'>
+		<br>
+		Name 
+		<input><br>
+		Type
+		<input><br>
+		ATK Bonus
+		<input type="number" id="armorAtk7" oninput="getAtkBonus()"><br>
+		Base AC
+		<input type="number" id="armorArm7" oninput="getDexMod()"><br>
+		Description
+		<textarea></textarea><br>
+		<button id="armorButton7" onclick="showArmorStatMods7()">Stat Modifiers</button>
+		<div id="armorStatMods7">
+			Str
+			<input type="number" id= "armorStr7" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "armorDex7" oninput="getDexMod()">
+			Con
+			<input type="number" id= "armorCon7" oninput="getConMod()">
+			Int
+			<input type="number" id= "armorInt7" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "armorWis7" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "armorCha7" oninput="getChaMod()">
+		</div><br><br>
+	</div>
+
+    <div id='aEight'>
+		<br>
+		Name 
+		<input><br>
+		Type
+		<input><br>
+		ATK Bonus
+		<input type="number" id="armorAtk8" oninput="getAtkBonus()"><br>
+		Base AC
+		<input type="number" id="armorArm8" oninput="getDexMod()"><br>
+		Description
+		<textarea></textarea><br>
+		<button id="armorButton8" onclick="showArmorStatMods8()">Stat Modifiers</button>
+		<div id="armorStatMods8">
+			Str
+			<input type="number" id= "armorStr8" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "armorDex8" oninput="getDexMod()">
+			Con
+			<input type="number" id= "armorCon8" oninput="getConMod()">
+			Int
+			<input type="number" id= "armorInt8" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "armorWis8" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "armorCha8" oninput="getChaMod()">
+		</div><br><br>
+	</div>
+
+    <div id='aNine'>
+		<br>
+		Name 
+		<input><br>
+		Type
+		<input><br>
+		ATK Bonus
+		<input type="number" id="armorAtk9" oninput="getAtkBonus()"><br>
+		Base AC
+		<input type="number" id="armorArm9" oninput="getDexMod()"><br>
+		Description
+		<textarea></textarea><br>
+		<button id="armorButton9" onclick="showArmorStatMods9()">Stat Modifiers</button>
+		<div id="armorStatMods9">
+			Str
+			<input type="number" id= "armorStr9" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "armorDex9" oninput="getDexMod()">
+			Con
+			<input type="number" id= "armorCon9" oninput="getConMod()">
+			Int
+			<input type="number" id= "armorInt9" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "armorWis9" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "armorCha9" oninput="getChaMod()">
+		</div><br><br>
+	</div>
+
+    <div id='aTen'>
+		<br>
+		Name 
+		<input><br>
+		Type
+		<input><br>
+		ATK Bonus
+		<input type="number" id="armorAtk10" oninput="getAtkBonus()"><br>
+		Base AC
+		<input type="number" id="armorArm10" oninput="getDexMod()"><br>
+		Description
+		<textarea></textarea><br>
+		<button id="armorButton10" onclick="showArmorStatMods10()">Stat Modifiers</button>
+		<div id="armorStatMods10">
+			Str
+			<input type="number" id= "armorStr10" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "armorDex10" oninput="getDexMod()">
+			Con
+			<input type="number" id= "armorCon10" oninput="getConMod()">
+			Int
+			<input type="number" id= "armorInt10" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "armorWis10" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "armorCha10" oninput="getChaMod()">
+		</div><br><br>
+    </div><br>
+
+    <button onclick="addArmor()">add armor</button><br><br>
+
+    Shield<br>
+    Name
+    <input><br>
+    ATK Bonus
+	<input type="number" id="shieldAtk" oninput="getAtkBonus()"><br>
+    Base AC
+    <input type="number" id="shieldArm" oninput="getDexMod()"><br>
+    Description
+    <textarea></textarea><br>
+    <button onclick="showShieldStatMods()">Stat Modifiers</button>
+    <!--hidden until button pressed-->
+    <div id="shieldStatMods">
+    	Str
+    	<input type="number" id="shieldStr" oninput="getStrMod()">
+    	Dex
+    	<input type="number" id="shieldDex" oninput="getDexMod()">
+    	Con
+    	<input type="number" id="shieldCon" oninput="getConMod()">
+    	Int
+    	<input type="number" id="shieldInt" oninput="getIntMod()">
+    	Wis
+    	<input type="number" id="shieldWis" oninput="getWisMod()">
+    	Cha
+    	<input type="number" id="shieldCha" oninput="getChaMod()">
+    </div><br>
+
+    <div id='sTwo'>
+		<br>
+		Name
+	    <input><br>
+	    ATK Bonus
+		<input type="number" id="shieldAtk2" oninput="getAtkBonus()"><br>
+	    Base AC
+	    <input type="number" id="shieldArm2" oninput="getDexMod()"><br>
+	    Description
+	    <textarea></textarea><br>
+		<button id="shieldButton2" onclick="showShieldStatMods2()">Stat Modifiers</button>
+		<div id="shieldStatMods2">
+			Str
+			<input type="number" id= "shieldStr2" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "shieldDex2" oninput="getDexMod()">
+			Con
+			<input type="number" id= "shieldCon2" oninput="getConMod()">
+			Int
+			<input type="number" id= "shieldInt2" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "shieldWis2" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "shieldCha2" oninput="getChaMod()">
+		</div><br>
+    </div>
+
+    <div id='sThree'>
+		<br>
+		Name
+	    <input><br>
+	    ATK Bonus
+		<input type="number" id="shieldAtk3" oninput="getAtkBonus()"><br>
+	    Base AC
+	    <input type="number" id="shieldArm3" oninput="getDexMod()"><br>
+	    Description
+	    <textarea></textarea><br>
+		<button id="shieldButton3" onclick="showShieldStatMods3()">Stat Modifiers</button>
+		<div id="shieldStatMods3">
+			Str
+			<input type="number" id= "shieldStr3" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "shieldDex3" oninput="getDexMod()">
+			Con
+			<input type="number" id= "shieldCon3" oninput="getConMod()">
+			Int
+			<input type="number" id= "shieldInt3" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "shieldWis3" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "shieldCha3" oninput="getChaMod()">
+		</div><br>
+    </div>
+
+    <div id='sFour'>
+		<br>
+		Name
+	    <input><br>
+	    ATK Bonus
+		<input type="number" id="shieldAtk4" oninput="getAtkBonus()"><br>
+	    Base AC
+	    <input type="number" id="shieldArm4" oninput="getDexMod()"><br>
+	    Description
+	    <textarea></textarea><br>
+		<button id="shieldButton4" onclick="showShieldStatMods4()">Stat Modifiers</button>
+		<div id="shieldStatMods4">
+			Str
+			<input type="number" id= "shieldStr4" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "shieldDex4" oninput="getDexMod()">
+			Con
+			<input type="number" id= "shieldCon4" oninput="getConMod()">
+			Int
+			<input type="number" id= "shieldInt4" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "shieldWis4" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "shieldCha4" oninput="getChaMod()">
+		</div><br>
+    </div>
+
+    <div id='sFive'>
+		<br>
+		Name
+	    <input><br>
+	    ATK Bonus
+		<input type="number" id="shieldAtk5" oninput="getAtkBonus()"><br>
+	    Base AC
+	    <input type="number" id="shieldArm5" oninput="getDexMod()"><br>
+	    Description
+	    <textarea></textarea><br>
+		<button id="shieldButton5" onclick="showShieldStatMods5()">Stat Modifiers</button>
+		<div id="shieldStatMods5">
+			Str
+			<input type="number" id= "shieldStr5" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "shieldDex5" oninput="getDexMod()">
+			Con
+			<input type="number" id= "shieldCon5" oninput="getConMod()">
+			Int
+			<input type="number" id= "shieldInt5" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "shieldWis5" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "shieldCha5" oninput="getChaMod()">
+		</div><br>
+    </div>
+
+    <div id='sSix'>
+		<br>
+		Name
+	    <input><br>
+	    ATK Bonus
+		<input type="number" id="shieldAtk6" oninput="getAtkBonus()"><br>
+	    Base AC
+	    <input type="number" id="shieldArm6" oninput="getDexMod()"><br>
+	    Description
+	    <textarea></textarea><br>
+		<button id="shieldButton6" onclick="showShieldStatMods6()">Stat Modifiers</button>
+		<div id="shieldStatMods6">
+			Str
+			<input type="number" id= "shieldStr6" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "shieldDex6" oninput="getDexMod()">
+			Con
+			<input type="number" id= "shieldCon6" oninput="getConMod()">
+			Int
+			<input type="number" id= "shieldInt6" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "shieldWis6" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "shieldCha6" oninput="getChaMod()">
+		</div><br>
+    </div>
+
+    <div id='sSeven'>
+		<br>
+		Name
+	    <input><br>
+	    ATK Bonus
+		<input type="number" id="shieldAtk7" oninput="getAtkBonus()"><br>
+	    Base AC
+	    <input type="number" id="shieldArm7" oninput="getDexMod()"><br>
+	    Description
+	    <textarea></textarea><br>
+		<button id="shieldButton7" onclick="showShieldStatMods7()">Stat Modifiers</button>
+		<div id="shieldStatMods7">
+			Str
+			<input type="number" id= "shieldStr7" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "shieldDex7" oninput="getDexMod()">
+			Con
+			<input type="number" id= "shieldCon7" oninput="getConMod()">
+			Int
+			<input type="number" id= "shieldInt7" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "shieldWis7" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "shieldCha7" oninput="getChaMod()">
+		</div><br>
+    </div>
+
+    <div id='sEight'>
+		<br>
+		Name
+	    <input><br>
+	    ATK Bonus
+		<input type="number" id="shieldAtk8" oninput="getAtkBonus()"><br>
+	    Base AC
+	    <input type="number" id="shieldArm8" oninput="getDexMod()"><br>
+	    Description
+	    <textarea></textarea><br>
+		<button id="shieldButton8" onclick="showShieldStatMods8()">Stat Modifiers</button>
+		<div id="shieldStatMods8">
+			Str
+			<input type="number" id= "shieldStr8" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "shieldDex8" oninput="getDexMod()">
+			Con
+			<input type="number" id= "shieldCon8" oninput="getConMod()">
+			Int
+			<input type="number" id= "shieldInt8" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "shieldWis8" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "shieldCha8" oninput="getChaMod()">
+		</div><br>
+    </div>
+
+    <div id='sNine'>
+		<br>
+		Name
+	    <input><br>
+	    ATK Bonus
+		<input type="number" id="shieldAtk9" oninput="getAtkBonus()"><br>
+	    Base AC
+	    <input type="number" id="shieldArm9" oninput="getDexMod()"><br>
+	    Description
+	    <textarea></textarea><br>
+		<button id="shieldButton9" onclick="showShieldStatMods9()">Stat Modifiers</button>
+		<div id="shieldStatMods9">
+			Str
+			<input type="number" id= "shieldStr9" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "shieldDex9" oninput="getDexMod()">
+			Con
+			<input type="number" id= "shieldCon9" oninput="getConMod()">
+			Int
+			<input type="number" id= "shieldInt9" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "shieldWis9" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "shieldCha9" oninput="getChaMod()">
+		</div><br>
+    </div>
+
+    <div id='sTen'>
+		<br>
+		Name
+	    <input><br>
+	    ATK Bonus
+		<input type="number" id="shieldAtk10" oninput="getAtkBonus()"><br>
+	    Base AC
+	    <input type="number" id="shieldArm10" oninput="getDexMod()"><br>
+	    Description
+	    <textarea></textarea><br>
+		<button id="shieldButton10" onclick="showShieldStatMods10()">Stat Modifiers</button>
+		<div id="shieldStatMods10">
+			Str
+			<input type="number" id= "shieldStr10" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "shieldDex10" oninput="getDexMod()">
+			Con
+			<input type="number" id= "shieldCon10" oninput="getConMod()">
+			Int
+			<input type="number" id= "shieldInt10" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "shieldWis10" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "shieldCha10" oninput="getChaMod()">
+		</div><br>
+    </div><br>
+
+    <button onclick="addShield()">add shield</button><br><br>
+</div>
+
+
+
+<div id="page3" class="tabcontent">
+	Accessable Items<br>
+	Name
+	<input><br>
+	ATK Bonus
+	<input type="number" id="itemAtk" oninput="getAtkBonus()"><br>
+	Base AC
+	<input type="number" id="itemArm" oninput="getDexMod()"><br>
+	Description
+	<textarea></textarea><br>	
+	<button onclick="showItemStatMods()">Stat Modifiers</button>
+    <!--hidden until button pressed-->
+    <div id="itemStatMods">
+    	Str
+    	<input type="number" id="itemStr" oninput="getStrMod()">
+    	Dex
+    	<input type="number" id="itemDex" oninput="getDexMod()">
+    	Con
+    	<input type="number" id="itemCon" oninput="getConMod()">
+    	Int
+    	<input type="number" id="itemInt" oninput="getIntMod()">
+    	Wis
+    	<input type="number" id="itemWis" oninput="getWisMod()">
+    	Cha
+    	<input type="number" id="itemCha" oninput="getChaMod()">
+    </div><br>
+
+    <div id='iTwo'>
+		<br>
+		Name
+		<input>
+		ATK Bonus 
+		<input type="number" id="itemAtk2" oninput="getAtkBonus()">
+		Base AC
+		<input type="number" id="itemArm2" oninput="getDexMod()">
+		Description
+		<textarea></textarea><br>
+		<button id="itemButton2" onclick="showItemStatMods2()">Stat Modifiers</button>
+		<div id="itemStatMods2">
+			Str
+			<input type="number" id= "itemStr2" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "itemDex2" oninput="getDexMod()">
+			Con
+			<input type="number" id= "itemCon2" oninput="getConMod()">
+			Int
+			<input type="number" id= "itemInt2" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "itemWis2" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "itemCha2" oninput="getChaMod()">
+		</div><br><br>
+    </div>
+
+    <div id='iThree'>
+		<br>
+		Name
+		<input>
+		ATK Bonus 
+		<input type="number" id="itemAtk3" oninput="getAtkBonus()">
+		Base AC
+		<input type="number" id="itemArm3" oninput="getDexMod()">
+		Description
+		<textarea></textarea><br>
+		<button id="itemButton3" onclick="showItemStatMods3()">Stat Modifiers</button>
+		<div id="itemStatMods3">
+			Str
+			<input type="number" id= "itemStr3" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "itemDex3" oninput="getDexMod()">
+			Con
+			<input type="number" id= "itemCon3" oninput="getConMod()">
+			Int
+			<input type="number" id= "itemInt3" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "itemWis3" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "itemCha3" oninput="getChaMod()">
+		</div><br><br>
+    </div>
+
+    <div id='iFour'>
+		<br>
+		Name
+		<input>
+		ATK Bonus 
+		<input type="number" id="itemAtk4" oninput="getAtkBonus()">
+		Base AC
+		<input type="number" id="itemArm4" oninput="getDexMod()">
+		Description
+		<textarea></textarea><br>
+		<button id="itemButton4" onclick="showItemStatMods4()">Stat Modifiers</button>
+		<div id="itemStatMods4">
+			Str
+			<input type="number" id= "itemStr4" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "itemDex4" oninput="getDexMod()">
+			Con
+			<input type="number" id= "itemCon4" oninput="getConMod()">
+			Int
+			<input type="number" id= "itemInt4" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "itemWis4" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "itemCha4" oninput="getChaMod()">
+		</div><br><br>
+    </div>
+
+    <div id='iFive'>
+		<br>
+		Name
+		<input>
+		ATK Bonus 
+		<input type="number" id="itemAtk5" oninput="getAtkBonus()">
+		Base AC
+		<input type="number" id="itemArm5" oninput="getDexMod()">
+		Description
+		<textarea></textarea><br>
+		<button id="itemButton5" onclick="showItemStatMods5()">Stat Modifiers</button>
+		<div id="itemStatMods5">
+			Str
+			<input type="number" id= "itemStr5" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "itemDex5" oninput="getDexMod()">
+			Con
+			<input type="number" id= "itemCon5" oninput="getConMod()">
+			Int
+			<input type="number" id= "itemInt5" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "itemWis5" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "itemCha5" oninput="getChaMod()">
+		</div><br><br>
+    </div>
+
+    <div id='iSix'>
+		<br>
+		Name
+		<input>
+		ATK Bonus 
+		<input type="number" id="itemAtk6" oninput="getAtkBonus()">
+		Base AC
+		<input type="number" id="itemArm6" oninput="getDexMod()">
+		Description
+		<textarea></textarea><br>
+		<button id="itemButton6" onclick="showItemStatMods6()">Stat Modifiers</button>
+		<div id="itemStatMods6">
+			Str
+			<input type="number" id= "itemStr6" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "itemDex6" oninput="getDexMod()">
+			Con
+			<input type="number" id= "itemCon6" oninput="getConMod()">
+			Int
+			<input type="number" id= "itemInt6" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "itemWis6" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "itemCha6" oninput="getChaMod()">
+		</div><br><br>
+    </div>
+
+    <div id='iSeven'>
+		<br>
+		Name
+		<input>
+		ATK Bonus 
+		<input type="number" id="itemAtk7" oninput="getAtkBonus()">
+		Base AC
+		<input type="number" id="itemArm7" oninput="getDexMod()">
+		Description
+		<textarea></textarea><br>
+		<button id="itemButton7" onclick="showItemStatMods7()">Stat Modifiers</button>
+		<div id="itemStatMods7">
+			Str
+			<input type="number" id= "itemStr7" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "itemDex7" oninput="getDexMod()">
+			Con
+			<input type="number" id= "itemCon7" oninput="getConMod()">
+			Int
+			<input type="number" id= "itemInt7" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "itemWis7" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "itemCha7" oninput="getChaMod()">
+		</div><br><br>
+    </div>
+
+    <div id='iEight'>
+		<br>
+		Name
+		<input>
+		ATK Bonus 
+		<input type="number" id="itemAtk8" oninput="getAtkBonus()">
+		Base AC
+		<input type="number" id="itemArm8" oninput="getDexMod()">
+		Description
+		<textarea></textarea><br>
+		<button id="itemButton8" onclick="showItemStatMods8()">Stat Modifiers</button>
+		<div id="itemStatMods8">
+			Str
+			<input type="number" id= "itemStr8" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "itemDex8" oninput="getDexMod()">
+			Con
+			<input type="number" id= "itemCon8" oninput="getConMod()">
+			Int
+			<input type="number" id= "itemInt8" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "itemWis8" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "itemCha8" oninput="getChaMod()">
+		</div><br><br>
+    </div>
+
+    <div id='iNine'>
+		<br>
+		Name
+		<input>
+		ATK Bonus 
+		<input type="number" id="itemAtk9" oninput="getAtkBonus()">
+		Base AC
+		<input type="number" id="itemArm9" oninput="getDexMod()">
+		Description
+		<textarea></textarea><br>
+		<button id="itemButton9" onclick="showItemStatMods9()">Stat Modifiers</button>
+		<div id="itemStatMods9">
+			Str
+			<input type="number" id= "itemStr9" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "itemDex9" oninput="getDexMod()">
+			Con
+			<input type="number" id= "itemCon9" oninput="getConMod()">
+			Int
+			<input type="number" id= "itemInt9" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "itemWis9" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "itemCha9" oninput="getChaMod()">
+		</div><br><br>
+    </div>
+
+    <div id='iTen'>
+		<br>
+		Name
+		<input>
+		ATK Bonus 
+		<input type="number" id="itemAtk10" oninput="getAtkBonus()">
+		Base AC
+		<input type="number" id="itemArm10" oninput="getDexMod()">
+		Description
+		<textarea></textarea><br>
+		<button id="itemButton10" onclick="showItemStatMods10()">Stat Modifiers</button>
+		<div id="itemStatMods10">
+			Str
+			<input type="number" id= "itemStr10" oninput="getStrMod()">
+			Dex
+			<input type="number" id= "itemDex10" oninput="getDexMod()">
+			Con
+			<input type="number" id= "itemCon10" oninput="getConMod()">
+			Int
+			<input type="number" id= "itemInt10" oninput="getIntMod()">
+			Wis
+			<input type="number" id= "itemWis10" oninput="getWisMod()">
+			Cha
+			<input type="number" id= "itemCha10" oninput="getChaMod()">
+		</div><br><br>
+    </div><br>
+
+    <button onclick="addItem()">add item</button><br><br>
+
+	Currency<br>	 
+	Platinum 
+	<input type="number">
+	Gold
+	<input type="number">
+	Silver	 
+	<input type="number">
+	Copper
+	<input type="number">
+</div>
+
+
+
+<div id="page4" class="tabcontent">
+	Feats<br>
+	<textarea></textarea>
+	<div id="feats"></div>
+	<button onclick="addFeat()">add feat</button>
+	<button onclick="removeFeat()">remove feature</button>
+	<br><br>
+	
+	Features<br>
+	<textarea></textarea>
+	<div id="features"></div>
+	<button onclick="addFeature()">add feature</button>
+	<button onclick="removeFeature()">remove feature</button>
+</div>
+
+
+
+<div id="page5" class="tabcontent">
+	Notes<br>
+	<textarea></textarea>
+	<div id="notes"></div>
+	<button onclick="addNote()">add note</button>
+    <button onclick="removeNote()">remove note</button>
+</script>
+</div>
+</div>
+
+
+
+</div>
+</body>
+</html>

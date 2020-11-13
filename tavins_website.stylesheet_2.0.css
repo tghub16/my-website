@@ -1,0 +1,629 @@
+/*styles entire site*/
+* {
+	margin: 15px;
+	padding: 0;
+}
+
+/*style for all pages*/
+/*makes pages that aren't the bio invisible until selected*/
+#projectsPage, #contactPage {
+	display: none;
+}
+
+/*sets background color, default font color, font-family, and makes font bold*/
+body {
+	background-color: #082633;
+	color: white;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+/*style for main title*/
+/*changes font color of title*/
+header {
+	color: white;
+}
+
+/*styles container of main title*/
+#siteTitleContainer {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+}
+
+/*styles 'Tavin Togia' in main title*/
+h1 {
+	display: flex;
+	justify-content: flex-start;
+	text-align: center;
+	font-size: 115px;
+	color: white;
+	white-space: nowrap;
+	margin: 0 40px 0 0;
+}
+
+/*styles 'Web Developer' in main title*/
+header h2 {
+	font-size: 50px;
+	display: flex;
+	white-space: nowrap;
+}
+
+/*sets line-height of p elements*/
+p {
+	line-height: 1.25;
+}
+
+/*styles page titles*/
+#title {
+	text-align: center;
+	margin: 0 0 30px 0;
+}
+
+/*style for page buttons*/
+/*styles container of page buttons*/
+#pageButtons {
+	display: flex;
+	justify-content: space-between;
+	height: 40px;
+	margin: 0 0 60px 0;
+	max-width: 600px;
+}
+
+/*styles page button outer most container*/
+.pageButton {
+	margin: 0 20px 0 20px;
+	display: flex;
+	flex-flow: column wrap;
+	width: 20px;
+	height: 20px;
+}
+
+/*styles secondary page button container*/
+.pageButtonContainer {
+	width: 100%;
+	height: 100%;
+}
+
+/*circle page button*/
+.circle {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	border: solid;
+	border-radius: 100px;
+	border-color: #0a8fc4;
+	background-color: #0a8fc4;
+	color: white;
+	font-weight: bold;
+	width: 40px;
+	height: 40px;
+	outline: none;
+}
+
+/*hover animation for page buttons*/
+@keyframes pgButtons {
+	100% {transform: scale(2, 2); opacity: 0%;}
+}
+
+.circle:hover {
+	animation-name: pgButtons;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+}
+
+/*styles page container*/
+.page {
+	display: flex;
+	flex-flow: column wrap;
+	align-self: center;
+	justify-content: center;
+	max-width: 1000px;
+	margin: 0 50px 0 50px;
+}
+
+/*styles main container*/
+main {
+	color: #9ae9f5;
+	display: flex;
+	flex-flow: column;
+}
+
+/*styles h2 elements*/
+h2 {
+	font-size: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+/*style for bio page*/
+/*styles bio paragraph*/
+p, div {
+	font-size: 20px;
+	margin: 0 0 5px 0;
+}
+
+/*style for stat bars*/
+/*styles background of stat bar table*/
+table {
+	margin: 20px 0 0 0;
+	width: 500px;
+	background-color: #3793b8;
+	margin: 20px;
+	padding: 75px;
+	border-radius: 300px;
+}
+
+/*sets row height and font color of table*/
+td {
+	height: 60px;
+	color: #c2f7ff;
+}
+
+/*name of skill*/
+.codingSkill {
+	width: 120px;
+}
+
+/*number value for skill*/
+.codingSkillVal {
+	width: 30px;
+}
+
+/*sets height and color of stat bar segments*/
+.codingSkillBar div {
+	background-color: #1f6480;
+	height: 40px;
+}
+
+/*sets color of empty stat bar segments*/
+.empty div {
+	background-color: #5ebae0;
+}
+
+/*container of bio and stat bars*/
+#bioAndStatBars {
+	display: flex;
+	justify-content: space-between;
+}
+
+/*styles container of bio and resume link*/
+#bio {
+	margin: 80px 0 0 17px;
+	max-width: 400px;
+	min-width: 250px;
+}
+
+/*styles resume link*/
+#viewResume {
+	font-size: 23px;
+}
+
+
+
+
+
+
+
+/*style for projects page*/
+/*styling for class of container of each project button*/
+.projectBox {
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+	align-self: center;
+	width: 800px;
+	height: 400px;
+	border-radius: 200px;
+	align-items: center;
+	padding: 100px;
+	border-width: 10px;
+	margin: 0 0 30px 0;
+	outline: none;
+}
+
+/*coloring of first project button*/
+#projectBox1 { 
+	border-color: #bbeafc;
+	color: #bbeafc;
+	background-color: #14a2db;
+}
+
+/*coloring of second project button*/
+#projectBox2 { 
+	border-color: #a2e1fa;
+	color: #a2e1fa;
+	background-color: #06485e;
+}
+
+/*coloring of first project button*/
+#projectBox3 { 
+	border-color: #bbeafc;
+	color: #bbeafc;
+	background-color: #14a2db;
+}
+
+/*transition of size when button is hovered*/
+#projectBox1, #projectBox2, #projectBox3{
+	transition: width .75s, height .75s, border-radius .75s;
+}
+
+#projectBox1:hover, #projectBox2:hover, #projectBox3:hover {
+	width: 880px;
+	height: 440px;
+	border-radius: 220px;
+}
+
+/*styling for elements inside project button*/
+/*styling for titles*/
+.projectBox h2 {
+	font-size: 40px;
+}
+
+/*styling for tumbnails*/
+.thumbnail {
+	margin: 0;
+	display: flex;
+	width: 280px;
+	height: auto;
+	border-radius: 50px;
+}
+
+/*styling for text*/
+.textContainer {
+	width: 280px;
+}
+
+
+
+
+
+
+
+/*style for contact page*/
+/*aligns contact page*/
+#contactPage {
+	align-items: center;
+}
+
+/*spaces elements from page title*/
+#email {
+	margin: 90px 0 0 0;
+}
+
+/*styles email address*/
+#emailAddress {
+	margin: 17px 0 50px 0;
+	font-size: 25px;
+}
+
+/*styles LinkedIn link*/
+a {
+	font-size: 23.5px;
+	margin: 0 0 5px 0;
+	color: white;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-weight: bold;
+	color: #1f9aad;
+}
+
+a:hover {
+	color: #127382;
+}
+
+/*styles headings*/
+h3 {
+	font-size: 30px;
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+	/*styles entire site*/
+	* {
+		margin: 5px;
+		padding: 0;
+	}
+
+	/*style for main title*/
+	/*styles container of main title*/
+	#siteTitleContainer {
+		display: flex;
+		flex-flow: column;
+		margin: 0 0 10px 0;
+	}
+
+	/*styles 'Tavin Togia' in main title*/
+	h1 {
+		font-size: 40px;
+		color: white;
+		margin: 0;
+		width: 100%;
+		justify-content: center;
+	}
+
+	/*styles 'Web Developer' in main title*/
+	header h2 {
+		font-size: 20px;
+	}
+
+	/*styles page titles*/
+	#title {
+		text-align: center;
+		margin: 15px 0 10px 0;
+	}
+
+	/*style for page buttons*/
+	/*styles container of page buttons*/
+	#pageButtons {
+		display: flex;
+		justify-content: center;
+		margin: 0;
+		padding: 0 26px 0 0;
+		max-width: 100%;
+	}
+
+	/*styles page button outer most container*/
+	.pageButton {
+		margin: 0 25px 0 25px;
+		width: 10px;
+		height: 10px;
+	}
+
+	/*circle page button*/
+	.circle {
+		border-radius: 100px;
+		width: 28px;
+		height: 28px;
+		justify-content: center;
+	}
+
+	/*styles page container*/
+	.page {
+		display: flex;
+		flex-flow: column;
+		align-self: center;
+		justify-content: center;
+		width: 100%;
+		margin: 0 10px 0 10px;
+	}
+
+	/*styles main container*/
+	main {
+		color: #9ae9f5;
+		display: flex;
+		flex-flow: column;
+	}
+
+	/*styles h2 elements*/
+	h2 {
+		font-size: 23px;
+	}
+
+
+
+
+
+
+
+
+
+	/*style for bio page*/
+	/*set page to column*/
+	#bioAndStatBars {
+		display: flex;
+		flex-flow: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	/*styles bio paragraph*/
+	p, div {
+		font-size: 12px;
+		margin: 0 0 3px 0;
+	}
+
+	/*style for stat bars*/
+	/*styles background of stat bar table*/
+	table {
+		margin: 20px 0 0 0;
+		width: 210px;
+		background-color: #3793b8;
+		margin: 20px;
+		padding: 30px;
+		border-radius: 300px;
+	}
+
+	/*sets row height and font color of table*/
+	td {
+		height: 35px;
+		color: #c2f7ff;
+	}
+
+	/*name of skill*/
+	.codingSkill {
+		width: 75px;
+	}
+
+	/*number value for skill*/
+	.codingSkillVal {
+		width: 10px;
+	}
+
+	/*sets height and color of stat bar segments*/
+	.codingSkillBar div {
+		background-color: #1f6480;
+		height: 13px;
+	}
+
+	/*sets color of empty stat bar segments*/
+	.empty div {
+		background-color: #5ebae0;
+	}
+
+	/*container of bio and stat bars*/
+	#bioAndStatBars {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	/*styles container of bio and resume link*/
+	#bio {
+		margin: 0px 0 0 17px;
+		width: 210px;
+	}
+
+	/*styles resume link*/
+	#viewResume {
+		font-size: 14px;
+	}
+
+
+
+
+
+
+
+
+	/*style for projects page*/
+	/*styling for class of container of each project button*/
+	.projectBox {
+		
+	}
+
+	/*sizing of first project button*/
+	#projectBox1 { 
+		flex-flow: column;
+		width: 225px;
+		height: 430px;
+		border-radius: 100px;
+		align-items: center;
+		padding: 15px;
+		border-width: 7px;
+		margin: 0 0 20px 0;
+	}
+
+	/*sizing of second project button*/
+	#projectBox2 { 
+		flex-flow: column;
+		width: 225px;
+		height: 300px;
+		border-radius: 100px;
+		align-items: center;
+		padding: 15px;
+		border-width: 7px;
+		margin: 0 0 20px 0;
+	}
+
+	/*sizing of third project button*/
+	#projectBox3 { 
+		flex-flow: column;
+		width: 225px;
+		height: 335px;
+		border-radius: 100px;
+		align-items: center;
+		padding: 15px;
+		border-width: 7px;
+		margin: 0 0 20px 0;
+	}
+
+	/*transition of size when button is hovered*/
+	#projectBox1, #projectBox2, #projectBox3 {
+		transition: width .75s, height .75s, border-radius .75s;
+	}
+
+	#projectBox1:hover {
+		width: 225px;
+		height: 450px;
+		border-radius: 100px;
+	}
+
+	#projectBox2:hover {
+		width: 225px;
+		height: 320px;
+		border-radius: 100px;
+	}
+
+	#projectBox3:hover {
+		width: 225px;
+		height: 355px;
+		border-radius: 100px;
+	}
+
+
+	/*styling for elements inside project button*/
+	/*styling for titles*/
+	.projectBox h2 {
+		font-size: 20px;
+		width: 200px;
+	}
+
+	/*styling for tumbnails*/
+	.thumbnail {
+		margin: 0;
+		display: flex;
+		width: 160px;
+		height: auto;
+		border-radius: 20px;
+	}
+
+	/*styling for text*/
+	.textContainer {
+		width: 200px;
+	}
+
+
+
+
+
+
+
+
+	/*style for contact page*/
+	/*aligns contact page*/
+	#contactPage {
+		align-items: center;
+	}
+
+	/*spaces elements from page title*/
+	#email {
+		margin: 25px 0 0 0;
+		font-size: 18px;
+	}
+
+	/*styles email address*/
+	#emailAddress {
+		margin: 8px 0 15px 0;
+		font-size: 15px;
+	}
+
+	/*styles LinkedIn link*/
+	a {
+		font-size: 15px;
+		margin: 0 0 5px 0;
+		color: white;
+		font-family: "Trebuchet MS", Helvetica, sans-serif;
+		font-weight: bold;
+		color: #1f9aad;
+	}
+
+	/*styles headings*/
+	h3 {
+		font-size: 18px;
+	}
+}
