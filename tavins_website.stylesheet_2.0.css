@@ -501,11 +501,6 @@ h3 {
 
 
 	/*style for projects page*/
-	/*styling for class of container of each project button*/
-	.projectBox {
-		
-	}
-
 	/*sizing of first project button*/
 	#projectBox1 { 
 		flex-flow: column;
